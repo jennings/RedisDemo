@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Lists";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Work Items To-Do List</h2>
+        <p>This is a simple <i>first-in, first-out</i> to-do list.</p>
+        <p>Click "Add a work item" to put something the top of the list.</p>
+        <p>Click "Get a work item" to complete the oldest item in the list.</p>
+        <ol start="0">
+            @foreach (var item in ViewBag.WorkItems)
+            {
+                <li>@item</li>
+            }
+        </ol>
+    </div>
+    <div class="col-md-6">
+        <h2>Do Work</h2>
+        @using (Html.BeginForm("Push", "Lists"))
+        {
+            <input type="text" name="value" placeholder="New work item" autofocus /><br />
+            <button type="submit">Add a work item</button>
+        }
+        <hr />
+        @using (Html.BeginForm("Pop", "Lists"))
+        {
+            <button type="submit">Get a work item</button>
+        }
+        @if (TempData.ContainsKey("popped"))
+        {
+            <text>
+                Got <b>@TempData["popped"]</b>!
+            </text>
+        }
+    </div>
+</div>
