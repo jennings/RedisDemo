@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		docs\00-InitialSetup.md = docs\00-InitialSetup.md
 		docs\01-AddingRedis.md = docs\01-AddingRedis.md
+		docs\02-ScalarOperations.md = docs\02-ScalarOperations.md
 		README.md = README.md
 	EndProjectSection
 EndProject

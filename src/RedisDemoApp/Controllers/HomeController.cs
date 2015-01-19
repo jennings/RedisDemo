@@ -14,7 +14,10 @@ namespace RedisDemoApp.Controllers
         public ActionResult Index()
         {
             string value = database.StringGet("appStarted");
+            long counter = database.StringIncrement("welcomePageCount");
+
             ViewBag.AppStarted = DateTime.Parse(value);
+            ViewBag.Counter = counter;
             return View();
         }
     }
