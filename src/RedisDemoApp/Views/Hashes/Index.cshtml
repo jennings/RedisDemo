@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Working Without Queries";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>User Database</h2>
+        <p>This is a simple demo of Redis hashes, and how to deal without queries.</p>
+        <p>Add a new user on the right, or show ages and delete users below.</p>
+        <ul>
+            @foreach (var kvp in ViewBag.Users)
+            {
+                <li>
+                    @kvp.Key
+                    (@Ajax.ActionLink("show age", "GetAge", new { userId = kvp.Value }, new AjaxOptions { OnSuccess = "updateAge" }, new { id = "age-" + @kvp.Value }))
+                    (@Html.ActionLink("delete", "Delete", new { userId = kvp.Value }))
+                </li>
+            }
+        </ul>
+        <ul id="messages"></ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Add User</h2>
+        @using (Html.BeginForm("Add", "Hashes"))
+        {
+            <input type="text" name="username" placeholder="Username" autofocus /><br />
+            <input type="text" name="age" placeholder="Age" /><br />
+            <button type="submit">Add</button>
+        }
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        function updateAge(age) {
+            var $span = $('<span>').text(age);
+            $(this).replaceWith($span);
+        }
+    </script>
+}

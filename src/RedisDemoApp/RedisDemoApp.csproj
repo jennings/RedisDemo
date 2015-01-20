@@ -135,6 +135,7 @@
     <Compile Include="Controllers\ListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PubSubController.cs" />
+    <Compile Include="Controllers\HashesController.cs" />
     <Compile Include="Controllers\SetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +185,7 @@
     <Content Include="Views\Lists\Index.cshtml" />
     <Content Include="Views\PubSub\Index.cshtml" />
     <Content Include="Views\Sets\Index.cshtml" />
+    <Content Include="Views\Hashes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
