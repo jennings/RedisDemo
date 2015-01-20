@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Sets";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Club Members</h2>
+        <p>This is a simple use of sets.</p>
+        <p>Click "Join" to add a new member of the club. Notice that adding the same member multiple times has no effect.</p>
+        <p>Click "leave" to remove a member.</p>
+        <ul>
+            @foreach (var item in ViewBag.ClubMembers)
+            {
+                <li>@item (@Html.ActionLink("leave", "Leave", new { value = item }))</li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Join the Club</h2>
+        @using (Html.BeginForm("Join", "Sets"))
+        {
+            <input type="text" name="value" placeholder="Member name" autofocus /><br />
+            <button type="submit">Join</button>
+        }
+    </div>
+</div>
